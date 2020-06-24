@@ -41,22 +41,26 @@ export const useDimension = () => {
 
 export const useStyle = (n, w, h, scale) => {
   const size = w / n 
-  const width = `${size}px`
-  const height = `${size}px`
   const position = 'absolute'
   const sf = sinify(scale)
   const borderRadius = '50%'
   return {
       getBallStyle(i) {
           const sfi = divideScale(sf, i, n)
-          const left = `${size * i}px`
-          const top = `${(h - size) * sfi}px`
-          return {position, width, height, position, left, top, borderRadius}
+          const sfi1 = divideScale(sfi, 0, 2)
+          const sfi2 = divideScale(sfi, 1, 2)
+          const dynSize = size * sfi1
+          const left = `${size * i + size / 2 - dynSize / 2}px`
+          const width = `${dynSize}px`
+          const height = `${dynSize}px`
+          const background = '#3F51B5'
+          const top = `${size / 2 - dynSize / 2 + (h - size) * sfi2}px`
+          return {position, width, height, position, left, top, borderRadius, background}
       },
       getBtnStyle() {
         const left = `${0.45 * w}px`
         const top = `${0.45 * h}px`
-        return {position}
+        return {position, left, top}
       }
   }
 }

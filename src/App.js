@@ -6,7 +6,7 @@ import MutliBallsExpandDropComponent from './MutliBallsExpandDropComponent'
 function App() {
   return (
     <div className="App">
-      <MutliBallsExpandDropComponent n = {6}></MutliBallsExpandDropComponent>
+      <MutliBallsExpandDropComponent n = {15}></MutliBallsExpandDropComponent>
     </div>
   );
 }

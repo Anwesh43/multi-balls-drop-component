@@ -19,7 +19,7 @@ const MutliBallsExpandDropPresentational = ({w, h, scale, onClick, n}) => {
   const {getBallStyle, getBtnStyle} = useStyle(n, w, h, scale)
   return (<div>
       {createBalls(getBallStyle, n)}
-      <button style = {getBtnStyle} onClick = {onClick}></button>
+      <button style = {getBtnStyle()} onClick = {onClick}>Start</button>
     </div>)
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 import {useDimension, useAnimatedScale} from './hooks'
 
 const MutliBallsExpandDropComponent = ({n}) => {
-  const {scale, start} = useAnimatedScale(0.02, 20)
+  const {scale, start} = useAnimatedScale(0.02 / 10, 20)
   const {w, h} = useDimension()
   return (
   <div>
