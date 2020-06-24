@@ -52,6 +52,11 @@ export const useStyle = (n, w, h, scale) => {
           const left = `${size * i}px`
           const top = `${(h - size) * sfi}px`
           return {position, width, height, position, left, top, borderRadius}
+      },
+      getBtnStyle() {
+        const left = `${0.45 * w}px`
+        const top = `${0.45 * h}px`
+        return {position}
       }
   }
 }
