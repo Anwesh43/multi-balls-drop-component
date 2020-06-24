@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import {sinify, divideScale} from './utils'
 
 export const useAnimatedScale = (scGap, delay) => {
     const [scale, setScale] = useState(0)
@@ -36,4 +37,21 @@ export const useDimension = () => {
     w, 
     h
   } 
+}
+
+export const useStyle = (n, w, h, scale) => {
+  const size = w / n 
+  const width = `${size}px`
+  const height = `${size}px`
+  const position = 'absolute'
+  const sf = sinify(scale)
+  const borderRadius = '50%'
+  return {
+      getBallStyle(i) {
+          const sfi = divideScale(sf, i, n)
+          const left = `${size * i}px`
+          const top = `${(h - size) * sfi}px`
+          return {position, width, height, position, left, top, borderRadius}
+      }
+  }
 }
